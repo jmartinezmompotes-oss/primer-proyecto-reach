@@ -1,0 +1,436 @@
+
+/* ================================
+   RESETEO GENERAL
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f6f8fc;
+    color: #263238;
+}
+
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
+.app-padre {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================
+   ENCABEZADO
+================================ */
+.encabezado {
+    height: 70px;
+    padding: 0 2rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e8edf3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    z-index: 20;
+}
+
+.encabezado h1 {
+    color: #172b4d;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.encabezado nav {
+    display: flex;
+    align-items: center;
+}
+
+.encabezado nav > a {
+    color: #526274;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 1.2rem;
+    padding: 0.55rem 0.8rem;
+    border-radius: 7px;
+    transition: 0.2s ease;
+}
+
+.encabezado nav > a:hover {
+    background: #f0f4f8;
+    color: #2563a8;
+}
+
+/* ================================
+   USUARIO
+================================ */
+.menu-usuario {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.menu-usuario-boton {
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.menu-usuario-boton:hover {
+    background: #f4f7fa;
+}
+
+.avatar {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #dbe5ef;
+}
+
+.menu-usuario-datos {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.menu-usuario-nombre {
+    color: #26364a;
+    font-size: 0.87rem;
+    font-weight: 650;
+}
+
+.menu-usuario-rol {
+    color: #8a97a6;
+    font-size: 0.72rem;
+    margin-top: 2px;
+}
+
+.flecha {
+    color: #7b8794;
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+}
+
+/* ================================
+   MENÚ DESPLEGABLE
+================================ */
+.menu-desplegable {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 210px;
+    background: #ffffff;
+    border: 1px solid #e6ebf0;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(23, 43, 77, 0.13);
+    list-style: none;
+    padding: 0.4rem 0;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: 0.2s ease;
+}
+
+.menu-usuario:hover .menu-desplegable {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-usuario:hover .flecha {
+    transform: rotate(180deg);
+}
+
+.menu-desplegable li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: 0.2s ease;
+}
+
+.menu-desplegable li a:hover {
+    background: #f5f8fb;
+    color: #2563a8;
+}
+
+.menu-desplegable .separado {
+    margin: 0.35rem 0;
+    border-bottom: 1px solid #edf0f3;
+}
+
+.menu-desplegable .cerrar-session {
+    color: #d64545;
+}
+
+.menu-desplegable .cerrar-session:hover {
+    background: #fff4f4;
+    color: #bd3030;
+}
+
+/* ================================
+   LAYOUT
+================================ */
+.app-layout {
+    flex: 1;
+    display: flex;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+.sidebar {
+    width: 245px;
+    padding: 1.7rem 1rem;
+    background: #172b4d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 3px 0 15px rgba(23, 43, 77, 0.08);
+}
+
+.sidebar-titulo {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 650;
+    padding: 0 0.7rem 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-menu {
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin-bottom: 0.35rem;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    border-radius: 8px;
+    color: #c8d2df;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+    background: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+.sidebar-pie {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* ================================
+   CONTENIDO
+================================ */
+.contenido {
+    flex: 1;
+    padding: 2.2rem;
+    overflow-x: hidden;
+}
+
+.contenido h2 {
+    color: #172b4d;
+    font-size: 1.55rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ================================
+   PRESENTACIÓN
+================================ */
+.presentacion {
+    position: relative;
+    background: #ffffff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e8edf3;
+    box-shadow: 0 5px 20px rgba(23, 43, 77, 0.05);
+    overflow: hidden;
+}
+
+.presentacion::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: #3b82c4;
+}
+
+.presentacion h2 {
+    color: #172b4d;
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.presentacion p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.presentacion ul {
+    padding-left: 1.2rem;
+    margin: 1rem 0;
+    color: #64748b;
+}
+
+.presentacion li {
+    margin-bottom: 0.4rem;
+}
+
+/* ================================
+   TARJETAS
+================================ */
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.3rem;
+}
+
+.tarjeta {
+    position: relative;
+    background: #ffffff;
+    padding: 1.5rem;
+    min-height: 170px;
+    border: 1px solid #e7ecf2;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(23, 43, 77, 0.05);
+    overflow: hidden;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.tarjeta::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    right: -25px;
+    bottom: -25px;
+    border-radius: 50%;
+    background: #edf5fc;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(23, 43, 77, 0.1);
+}
+
+.tarjeta img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    margin-bottom: 0.9rem;
+}
+
+.tarjeta h3 {
+    color: #172b4d;
+    font-size: 1rem;
+    margin-bottom: 0.45rem;
+}
+
+.tarjeta p {
+    color: #718096;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+/* ================================
+   PIE DE PÁGINA
+================================ */
+.pie {
+    padding: 1rem;
+    background: #ffffff;
+    border-top: 1px solid #e8edf3;
+    color: #8492a3;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .contenido {
+        padding: 1.5rem;
+    }
+
+    .menu-usuario-datos {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .encabezado {
+        padding: 0 1rem;
+    }
+
+    .encabezado h1 {
+        font-size: 1.1rem;
+    }
+
+    .encabezado nav > a {
+        display: none;
+    }
+
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+
+    .sidebar-menu li {
+        margin: 0;
+    }
+
+    .contenido {
+        padding: 1rem;
+    }
+
+    .presentacion {
+        padding: 1.4rem;
+    }
+}
