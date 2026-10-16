@@ -434,3 +434,136 @@ body {
         padding: 1.4rem;
     }
 }
+
+/* TARJETA PRINCIPAL */
+.tarjeta {
+    background: #1E293B;
+    padding: 28px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid #334155;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* DETALLE SUPERIOR */
+.tarjeta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #475569;
+    transition: background 0.3s ease;
+}
+
+/* EFECTO HOVER */
+.tarjeta:hover {
+    transform: translateY(-6px);
+    border-color: #F97316;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta:hover::before {
+    background: #F97316;
+}
+
+/* ICONO */
+.tarjeta-icono {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #334155;
+    color: #FB923C;
+    border-radius: 12px;
+    font-size: 25px;
+    transition: all 0.3s ease;
+}
+
+.tarjeta:hover .tarjeta-icono {
+    background: #F97316;
+    color: #FFFFFF;
+}
+
+/* TITULO */
+.tarjeta h3 {
+    color: #F8FAFC;
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* DESCRIPCION */
+.tarjeta p {
+    color: #CBD5E1;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* HORAS */
+.tarjeta .tarjeta-horas {
+    margin-top: 5px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: #334155;
+    color: #FB923C;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid #475569;
+}
+
+/* TARJETA DESTACADA */
+.tarjeta-destacada {
+    background: linear-gradient(145deg, #431407, #1E293B 75%);
+    border: 1px solid #C2410C;
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.08);
+}
+
+/* FRANJA DE LA DESTACADA */
+.tarjeta-destacada::before {
+    background: #F97316;
+    height: 5px;
+}
+
+/* ICONO DESTACADO */
+.tarjeta-destacada .tarjeta-icono {
+    background: #F97316;
+    color: #FFFFFF;
+}
+
+/* TITULO DESTACADO */
+.tarjeta-destacada h3 {
+    color: #FDBA74;
+}
+
+/* HORAS DESTACADAS */
+.tarjeta-destacada .tarjeta-horas {
+    background: #F97316;
+    color: #FFFFFF;
+    border-color: #F97316;
+}
+
+/* HOVER DESTACADO */
+.tarjeta-destacada:hover {
+    border-color: #FB923C;
+    box-shadow: 0 12px 35px rgba(249, 115, 22, 0.18);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .tarjeta {
+        padding: 22px;
+    }
+
+    .tarjeta h3 {
+        font-size: 19px;
+    }
+}
